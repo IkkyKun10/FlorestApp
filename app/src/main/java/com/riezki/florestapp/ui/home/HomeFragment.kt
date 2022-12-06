@@ -1,5 +1,6 @@
 package com.riezki.florestapp.ui.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +9,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.riezki.florestapp.databinding.FragmentHomeBinding
+import com.riezki.florestapp.ui.home.detail.DetailActivity
 
 class HomeFragment : Fragment() {
 
@@ -33,6 +35,14 @@ class HomeFragment : Fragment() {
             textView.text = it
         }
         return root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.btnToDetail.setOnClickListener {
+            val intent = Intent(activity, DetailActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onDestroyView() {
