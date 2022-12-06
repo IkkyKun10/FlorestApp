@@ -28,34 +28,34 @@
                 android:id="@+id/loginText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Login"
+                android:text="@string/login"
                 android:textAlignment="center"
                 android:textColor="@color/purple_200"
                 android:textSize="36sp"
                 android:textStyle="bold" />
 
-            <EditText
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/username"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="40dp"
                 android:background="@drawable/custome_editext"
-                android:drawableLeft="@drawable/ic_person"
+                android:drawableStart="@drawable/ic_person"
                 android:drawablePadding="8dp"
-                android:hint="Username"
+                android:hint="@string/username"
                 android:padding="8dp"
                 android:textColor="@color/black"
                 android:textColorHighlight="@color/cardview_dark_background" />
 
-            <EditText
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/password"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="20dp"
                 android:background="@drawable/custome_editext"
-                android:drawableLeft="@drawable/ic_person"
+                android:drawableStart="@drawable/ic_person"
                 android:drawablePadding="8dp"
-                android:hint="Password"
+                android:hint="@string/password"
                 android:inputType="textPassword"
                 android:padding="8dp"
                 android:textColor="@color/black"
@@ -67,7 +67,7 @@
                 android:layout_height="60dp"
                 android:layout_marginTop="30dp"
                 android:backgroundTint="@color/purple_200"
-                android:text="Login"
+                android:text="@string/login"
                 android:textAllCaps="false"
                 android:textSize="18sp"
                 app:cornerRadius="20dp" />
@@ -81,7 +81,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:padding="8dp"
-        android:text="Not yet registered? SignUp Now"
+        android:text="@string/signup_text"
         android:textAlignment="center"
         android:textColor="@color/purple_200"
         android:textSize="14sp" />
