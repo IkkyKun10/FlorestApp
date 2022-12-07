@@ -52,16 +52,23 @@ class SignUpFragment : Fragment() {
         }
     }
 
+    private fun showLoading(state: Boolean) {
+        if (state) binding.progressBar.visibility = View.VISIBLE else View.GONE
+    }
+
     private fun registerFirebaseAuth(email: String, password: String) {
+        showLoading(true)
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(requireActivity()){
                 if (it.isSuccessful){
+                    showLoading(false)
                     Toast.makeText(context, "Register Berhasil", Toast.LENGTH_SHORT).show()
                     Intent(context, LoginFragment::class.java).also { its ->
                         startActivity(its)
                         activity?.finish()
                     }
                 } else {
+                    showLoading(false)
                     Toast.makeText(context, "${it.exception?.message}", Toast.LENGTH_SHORT).show()
                 }
             }

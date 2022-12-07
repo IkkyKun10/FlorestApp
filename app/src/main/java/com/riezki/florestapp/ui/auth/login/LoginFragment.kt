@@ -11,7 +11,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.riezki.florestapp.MainActivity
 import com.riezki.florestapp.R
@@ -53,16 +52,23 @@ class LoginFragment : Fragment() {
         }
     }
 
+    private fun showLoading(state: Boolean) {
+        if (state) binding.progressBar.visibility = View.VISIBLE else View.GONE
+    }
+
     private fun signInFirebaseAuth(email: String, password: String) {
+        showLoading(true)
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener(requireActivity()) {
                 if (it.isSuccessful) {
+                    showLoading(false)
                     Toast.makeText(context, "Berhasil Login", Toast.LENGTH_SHORT).show()
                     Intent(context, MainActivity::class.java).also { its ->
                         startActivity(its)
                         activity?.finish()
                     }
                 } else {
+                    showLoading(false)
                     Toast.makeText(context, "${it.exception?.message}", Toast.LENGTH_SHORT).show()
                 }
             }
@@ -140,6 +146,17 @@ class LoginFragment : Fragment() {
                     password.error = null
                     true
                 }
+            }
+        }
+    }
+
+    override fun onStart() {
+        super.onStart()
+
+        if (auth.currentUser != null) {
+            Intent(context, MainActivity::class.java).also {
+                startActivity(it)
+                activity?.finish()
             }
         }
     }
