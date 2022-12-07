@@ -6,6 +6,7 @@ import androidx.navigation.fragment.NavHostFragment
 import com.riezki.florestapp.R
 
 class AuthActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_auth)
@@ -14,4 +15,5 @@ class AuthActivity : AppCompatActivity() {
             supportFragmentManager.findFragmentById(R.id.nav_auth_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
     }
+
 }

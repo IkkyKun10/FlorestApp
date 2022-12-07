@@ -4,16 +4,17 @@ plugins {
     id 'kotlin-parcelize'
     id 'kotlin-kapt'
     id "androidx.navigation.safeargs.kotlin"
+    id 'com.google.gms.google-services'
 }
 
 android {
     namespace 'com.riezki.florestapp'
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.riezki.florestapp"
         minSdk 21
-        targetSdk 32
+        targetSdk 33
         versionCode 1
         versionName "1.0"
 
@@ -66,6 +67,8 @@ dependencies {
     implementation "com.squareup.okhttp3:logging-interceptor:$logging_interceptor_version"
 
     implementation "androidx.room:room-runtime:$room_version"
+    implementation "com.google.firebase:firebase-auth:$firebase_auth"
+    implementation "com.google.firebase:firebase-auth-ktx:$firebase_auth"
     kapt "androidx.room:room-compiler:$room_version"
     androidTestImplementation "androidx.room:room-testing:$room_version"
     implementation "androidx.room:room-ktx:$room_version"

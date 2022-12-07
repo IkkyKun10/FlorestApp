@@ -34,18 +34,7 @@
                 android:textSize="36sp"
                 android:textStyle="bold" />
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/username"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="40dp"
-                android:background="@drawable/custome_editext"
-                android:drawableStart="@drawable/ic_person"
-                android:drawablePadding="8dp"
-                android:hint="@string/username"
-                android:padding="8dp"
-                android:textColor="@color/black"
-                android:textColorHighlight="@color/cardview_dark_background" />
+
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/email"
@@ -75,8 +64,22 @@
                 android:textColor="@color/black"
                 android:textColorHighlight="@color/cardview_dark_background" />
 
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/retype_password"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/custome_editext"
+                android:drawableStart="@drawable/ic_password"
+                android:drawablePadding="8dp"
+                android:hint="@string/retype_password"
+                android:inputType="textPassword"
+                android:padding="8dp"
+                android:textColor="@color/black"
+                android:textColorHighlight="@color/cardview_dark_background" />
+
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/loginButton"
+                android:id="@+id/registerButton"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="30dp"
@@ -93,11 +96,22 @@
         android:id="@+id/signupText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
         android:padding="8dp"
         android:text="@string/login_text"
         android:textAlignment="center"
         android:textColor="@color/purple_200"
         android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/tv_to_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="@font/baloo_chettan"
+        android:text="@string/login"
+        android:textAlignment="center"
+        android:textColor="@color/purple_500"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>

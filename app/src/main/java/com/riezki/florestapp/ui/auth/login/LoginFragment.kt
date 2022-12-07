@@ -1,60 +1,145 @@
 package com.riezki.florestapp.ui.auth.login
 
+import android.content.Intent
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
+import android.util.Patterns
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import com.google.firebase.auth.FirebaseAuth
+import com.riezki.florestapp.MainActivity
 import com.riezki.florestapp.R
+import com.riezki.florestapp.databinding.FragmentLoginBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [LoginFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class LoginFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    private var _binding: FragmentLoginBinding? = null
+    private val binding get() = _binding!!
+
+    lateinit var auth: FirebaseAuth
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_login, container, false)
+        _binding = FragmentLoginBinding.inflate(inflater, container, false)
+
+        return binding.root
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment LoginFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            LoginFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        auth = FirebaseAuth.getInstance()
+
+        textChangeListener()
+        binding.loginButton.setOnClickListener {
+            if (validateInput()) {
+                val email = binding.emailInput.text.toString()
+                val password = binding.password.text.toString()
+                signInFirebaseAuth(email, password)
+            }
+        }
+    }
+
+    private fun signInFirebaseAuth(email: String, password: String) {
+        auth.signInWithEmailAndPassword(email, password)
+            .addOnCompleteListener(requireActivity()) {
+                if (it.isSuccessful) {
+                    Toast.makeText(context, "Berhasil Login", Toast.LENGTH_SHORT).show()
+                    Intent(context, MainActivity::class.java).also { its ->
+                        startActivity(its)
+                        activity?.finish()
+                    }
+                } else {
+                    Toast.makeText(context, "${it.exception?.message}", Toast.LENGTH_SHORT).show()
                 }
             }
+    }
+
+    private fun textChangeListener() {
+        binding.emailInput.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+            }
+
+            override fun onTextChanged(input: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                validateEmail(input.toString())
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+
+            }
+
+        })
+
+        binding.password.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
+
+            }
+
+            override fun onTextChanged(input: CharSequence?, p1: Int, p2: Int, p3: Int) {
+                validatePassword(input.toString())
+            }
+
+            override fun afterTextChanged(p0: Editable?) {
+
+            }
+
+        })
+    }
+
+    private fun validateEmail(text: String) {
+        with(binding) {
+            if (text.trim().isEmpty()) {
+                emailInput.error = "Username tidak boleh kosong"
+            } else {
+                emailInput.error = null
+            }
+        }
+    }
+
+    private fun validatePassword(text: String) {
+        with(binding) {
+            if (text.length < 8) {
+                password.error = "Password minimal 8 karakter"
+            } else {
+                password.error = null
+            }
+        }
+    }
+
+    private fun validateInput(): Boolean {
+        with(binding) {
+            return when {
+                emailInput.text?.trim().isNullOrEmpty() -> {
+                    emailInput.error = "Silahkan isi email terlebih dahulu"
+                    false
+                }
+                (password.text?.length ?: 0) < 6 -> {
+                    password.error = "Password minimal 8 karakter"
+                    false
+                }
+                !Patterns.EMAIL_ADDRESS.matcher(emailInput.toString()).matches() -> {
+                    emailInput.error = "Email tidak valid"
+                    false
+                }
+                else -> {
+                    emailInput.error = null
+                    password.error = null
+                    true
+                }
+            }
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }

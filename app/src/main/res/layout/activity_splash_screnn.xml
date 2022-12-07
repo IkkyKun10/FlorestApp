@@ -17,4 +17,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:lottie_autoPlay="true"
         app:lottie_speed="1.5"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

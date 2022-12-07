@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/aldrich</item>
+        <item>@font/baloo_chettan</item>
+        <item>@font/satisfy</item>
+        <item>@font/spicy_rice</item>
+    </array>
+</resources>

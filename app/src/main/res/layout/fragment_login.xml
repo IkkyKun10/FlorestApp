@@ -35,7 +35,7 @@
                 android:textStyle="bold" />
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/username"
+                android:id="@+id/email_input"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="40dp"
@@ -79,11 +79,22 @@
         android:id="@+id/signupText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
         android:padding="8dp"
         android:text="@string/signup_text"
         android:textAlignment="center"
         android:textColor="@color/purple_200"
         android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/tv_to_register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="@font/baloo_chettan"
+        android:text="@string/register"
+        android:textAlignment="center"
+        android:textColor="@color/purple_500"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
 </LinearLayout>
