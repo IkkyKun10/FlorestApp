@@ -27,6 +27,7 @@
         </activity>
         <activity
             android:name=".ui.auth.AuthActivity"
+            android:theme="@style/Theme.NoActionBar"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"

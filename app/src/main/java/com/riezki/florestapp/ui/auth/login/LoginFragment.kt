@@ -10,6 +10,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.riezki.florestapp.MainActivity
 import com.riezki.florestapp.R
@@ -44,6 +46,10 @@ class LoginFragment : Fragment() {
                 val password = binding.password.text.toString()
                 signInFirebaseAuth(email, password)
             }
+        }
+
+        binding.tvToRegister.setOnClickListener {
+            view.findNavController().navigate(R.id.loginFragment_to_signUpFragment)
         }
     }
 
@@ -125,7 +131,7 @@ class LoginFragment : Fragment() {
                     password.error = "Password minimal 8 karakter"
                     false
                 }
-                !Patterns.EMAIL_ADDRESS.matcher(emailInput.toString()).matches() -> {
+                !Patterns.EMAIL_ADDRESS.matcher(emailInput.text.toString()).matches() -> {
                     emailInput.error = "Email tidak valid"
                     false
                 }

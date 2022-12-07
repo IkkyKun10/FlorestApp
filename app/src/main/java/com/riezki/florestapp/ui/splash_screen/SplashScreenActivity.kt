@@ -13,9 +13,11 @@ class SplashScreenActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screnn)
 
+        supportActionBar?.hide()
         Handler(Looper.getMainLooper()).postDelayed({
             Intent(this@SplashScreenActivity, AuthActivity::class.java).also {
                 startActivity(it)
+                finish()
             }
         }, 2000)
     }

@@ -10,7 +10,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.navigation.findNavController
 import com.google.firebase.auth.FirebaseAuth
+import com.riezki.florestapp.R
 import com.riezki.florestapp.databinding.FragmentSignUpBinding
 import com.riezki.florestapp.ui.auth.login.LoginFragment
 
@@ -42,6 +44,11 @@ class SignUpFragment : Fragment() {
                 val password = binding.password.text.toString()
                 registerFirebaseAuth(email, password)
             }
+        }
+
+        binding.loginText.setOnClickListener {
+            view.findNavController().navigate(R.id.signUpFragment_to_loginFragment)
+            activity?.finish()
         }
     }
 
@@ -147,11 +154,12 @@ class SignUpFragment : Fragment() {
                     password.requestFocus()
                     false
                 }
-                !Patterns.EMAIL_ADDRESS.matcher(email.toString()).matches() -> {
+                !Patterns.EMAIL_ADDRESS.matcher(email.text.toString()).matches() -> {
                     email.error = "Email tidak valid"
                     false
                 }
                 else -> {
+                    email.error = null
                     retypePassword.error = null
                     password.error = null
                     true
