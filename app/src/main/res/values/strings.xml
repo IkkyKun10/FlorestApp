@@ -13,4 +13,6 @@
     <string name="email">Email</string>
     <string name="login_text">Have Already Account? Login Now</string>
     <string name="retype_password">Retype Password</string>
+    <string name="profile_text">Profile</string>
+    <string name="list_of_my_story">My Story</string>
 </resources>
