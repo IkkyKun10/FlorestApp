@@ -20,4 +20,8 @@
     <string name="image_home">image_home</string>
     <string name="percent_complete">60% Complete</string>
     <string name="let_s_go">Let\'s Go!</string>
+    <string name="tips_and_trick">Tips and Trick</string>
+    <string name="see_all">See All</string>
+    <string name="hello_name">Hello Ikky!</string>
+    <string name="first_desc_home">Continue to \nExplorer you\'re Florest</string>
 </resources>
