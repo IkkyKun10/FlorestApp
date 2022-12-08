@@ -24,4 +24,12 @@
     <string name="see_all">See All</string>
     <string name="hello_name">Hello Ikky!</string>
     <string name="first_desc_home">Continue to \nExplorer you\'re Florest</string>
+    <string name="name_profile">Ikky kun</string>
+    <string name="pro_txt">Pro</string>
+    <string name="job_desc">Android Developer</string>
+    <string name="follow">Follow</string>
+    <string name="message_txt">Message</string>
+    <string name="n_a_txt">N/A</string>
+    <string name="likes_txt">Likes</string>
+    <string name="following_txt">Following</string>
 </resources>
