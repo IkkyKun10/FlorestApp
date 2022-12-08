@@ -15,4 +15,9 @@
     <string name="retype_password">Retype Password</string>
     <string name="profile_text">Profile</string>
     <string name="list_of_my_story">My Story</string>
+    <string name="icon_notification">icon notification</string>
+    <string name="third_desc_home">Refer your friends and\n and find new flower</string>
+    <string name="image_home">image_home</string>
+    <string name="percent_complete">60% Complete</string>
+    <string name="let_s_go">Let\'s Go!</string>
 </resources>
