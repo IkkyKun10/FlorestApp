@@ -15,6 +15,8 @@ import com.riezki.florestapp.databinding.FragmentHomeBinding
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
+    private val list : ArrayList<ListTipsData> = arrayListOf()
+    private lateinit var rvListTips: RecyclerView
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -40,6 +42,10 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        rvListTips = binding.listTipsRv
+        rvListTips.setHasFixedSize(true)
+
+        list.addAll(listTips)
         addPostProduct()
     }
 
@@ -114,6 +120,25 @@ class HomeFragment : Fragment() {
                 thirdFab.isClickable = false
             }
         }
+    }
+
+    private val listTips: ArrayList<ListTipsData>
+    get() {
+        val judul = resources.getStringArray(R.array.judul)
+        val deskripsi = resources.getStringArray(R.array.deskripsi)
+
+        val listTips = ArrayList<ListTipsData>()
+        for (i in judul.indices) {
+            val list = ListTipsData(judul[i], deskripsi[i])
+            listTips.add(list)
+        }
+        return listTips
+    }
+
+    private fun showRecycleList() {
+        rvListTips.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        val listTipsAdapter = ListTipsAdapter(list)
+        rvListTips.adapter = listTipsAdapter
     }
 
     override fun onDestroyView() {

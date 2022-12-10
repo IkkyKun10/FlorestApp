@@ -38,4 +38,21 @@
     <string name="comment">Comment</string>
     <string name="add_a_comment">Add a comment</string>
     <string name="to_detail">To Detail</string>
+    <string name="title">Judul</string>
+
+    <string-array name="judul">
+        <item>Judul 1</item>
+        <item>Judul 2</item>
+        <item>Judul 3</item>
+        <item>Judul 4</item>
+        <item>Judul 5</item>
+    </string-array>
+
+    <string-array name="deskripsi">
+        <item>deskripsi 1</item>
+        <item>deskripsi 2</item>
+        <item>deskripsi 3</item>
+        <item>deskripsi 4</item>
+        <item>deskripsi 5</item>
+    </string-array>
 </resources>
