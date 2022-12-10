@@ -1,21 +1,16 @@
 package com.riezki.florestapp.ui.home
 
-import android.content.Intent
 import android.os.Bundle
-import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.coordinatorlayout.widget.CoordinatorLayout
 import androidx.fragment.app.Fragment
 import com.google.android.material.snackbar.BaseTransientBottomBar
 import com.google.android.material.snackbar.Snackbar
 import com.riezki.florestapp.R
 import com.riezki.florestapp.databinding.FragmentHomeBinding
-import com.riezki.florestapp.ui.home.detail.DetailActivity
 
 class HomeFragment : Fragment() {
 
@@ -79,6 +74,7 @@ class HomeFragment : Fragment() {
     private fun onAddButtonClicked() {
         setVisibility(clicked)
         setAnimation(clicked)
+        setClickable(clicked)
         clicked = !clicked
     }
 
@@ -108,8 +104,8 @@ class HomeFragment : Fragment() {
         }
     }
 
-    private fun setClickable(clicked: Boolean){
-        with(binding){
+    private fun setClickable(clicked: Boolean) {
+        with(binding) {
             if (!clicked) {
                 secondFab.isClickable = true
                 thirdFab.isClickable = true
@@ -117,6 +113,7 @@ class HomeFragment : Fragment() {
                 secondFab.isClickable = false
                 thirdFab.isClickable = false
             }
+        }
     }
 
     override fun onDestroyView() {
