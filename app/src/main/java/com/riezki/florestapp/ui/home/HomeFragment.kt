@@ -1,5 +1,6 @@
 package com.riezki.florestapp.ui.home
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Gravity
 import android.view.LayoutInflater
@@ -14,6 +15,7 @@ import com.google.android.material.snackbar.BaseTransientBottomBar
 import com.google.android.material.snackbar.Snackbar
 import com.riezki.florestapp.R
 import com.riezki.florestapp.databinding.FragmentHomeBinding
+import com.riezki.florestapp.ui.home.detail.DetailActivity
 
 class HomeFragment : Fragment() {
 
@@ -115,7 +117,6 @@ class HomeFragment : Fragment() {
                 secondFab.isClickable = false
                 thirdFab.isClickable = false
             }
-        }
     }
 
     override fun onDestroyView() {
