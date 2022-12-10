@@ -20,7 +20,7 @@ class SignUpFragment : Fragment() {
 
     private var _binding: FragmentSignUpBinding? = null
     private val binding get() = _binding!!
-    lateinit var auth: FirebaseAuth
+    private lateinit var auth: FirebaseAuth
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -50,6 +50,7 @@ class SignUpFragment : Fragment() {
             view.findNavController().navigate(R.id.signUpFragment_to_loginFragment)
             activity?.finish()
         }
+
     }
 
     private fun showLoading(state: Boolean) {

@@ -69,6 +69,8 @@ dependencies {
     implementation "androidx.room:room-runtime:$room_version"
     implementation "com.google.firebase:firebase-auth:$firebase_auth"
     implementation "com.google.firebase:firebase-auth-ktx:$firebase_auth"
+    implementation 'com.google.firebase:firebase-storage-ktx:20.1.0'
+    implementation 'com.google.firebase:firebase-database-ktx:20.1.0'
     kapt "androidx.room:room-compiler:$room_version"
     androidTestImplementation "androidx.room:room-testing:$room_version"
     implementation "androidx.room:room-ktx:$room_version"
@@ -98,6 +100,9 @@ dependencies {
 
     //indicatorload
     implementation "me.relex:circleindicator:$circle_indicator"
+
+    //fab UI
+    implementation "com.getbase:floatingactionbutton:1.10.1"
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.4'

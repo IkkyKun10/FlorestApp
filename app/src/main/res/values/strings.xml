@@ -33,4 +33,5 @@
     <string name="likes_txt">Likes</string>
     <string name="following_txt">Following</string>
     <string name="my_post">My Post</string>
+    <string name="content_description">Content Description</string>
 </resources>
