@@ -5,11 +5,10 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
 import com.riezki.florestapp.databinding.FragmentHomeBinding
 import com.riezki.florestapp.ui.home.detail.DetailActivity
+import com.riezki.florestapp.ui.home.detail.DetailTipsActivity
 
 class HomeFragment : Fragment() {
 
@@ -31,13 +30,12 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
         binding.btnToDetail.setOnClickListener {
             val intent = Intent(activity, DetailActivity::class.java)
+            startActivity(intent)
+        }
+        binding.btnToDetailTips.setOnClickListener{
+            val intent = Intent(activity, DetailTipsActivity::class.java)
             startActivity(intent)
         }
     }

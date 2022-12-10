@@ -7,7 +7,6 @@
     <string name="signup_text">Not yet registered? SignUp Now</string>
     <string name="login">Login</string>
     <string name="password">Password</string>
-    <string name="username">Username</string>
     <string name="register">Register</string>
     <string name="email">Email</string>
     <string name="login_text">Have Already Account? Login Now</string>
@@ -19,4 +18,13 @@
     <string name="user_profile_picture">User Profile Picture</string>
     <string name="comment">Comment</string>
     <string name="add_a_comment">Add a comment</string>
+    <string name="to_detail">To Detail</string>
+    <string name="image_tips">Image Tips</string>
+    <string name="item_title">Item Title</string>
+    <string name="rp_1000">Rp.1000</string>
+    <string name="contact_seller">Contact Seller</string>
+    <string name="tips_title">Tips Title</string>
+    <string name="date_posted">Date Posted</string>
+    <string name="tips_content">Tips Content</string>
+    <string name="to_detail_tips">To Detail Tips</string>
 </resources>
