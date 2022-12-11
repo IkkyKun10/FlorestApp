@@ -11,4 +11,11 @@
     <color name="light_green">#8BC34A</color>
     <color name="green">#388E3C</color>
     <color name="green_fresh">#D3ECEC</color>
+
+    <color name="colorPrimaryDark">#2A2E43</color>
+    <color name="blue_ori">#1976d2</color>
+    <color name="blue_light">#63a4ff</color>
+    <color name="blue_dark">#004ba0</color>
+    <color name="grey_light">#E2ECEA</color>
+    <color name="purple_light">#C939D9</color>
 </resources>

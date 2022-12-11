@@ -13,6 +13,25 @@
     <string name="retype_password">Retype Password</string>
     <string name="profile_text">Profile</string>
     <string name="list_of_my_story">My Story</string>
+    <string name="icon_notification">icon notification</string>
+    <string name="third_desc_home">Refer your friends and\n and find new flower</string>
+    <string name="image_home">image_home</string>
+    <string name="percent_complete">60% Complete</string>
+    <string name="let_s_go">Let\'s Go!</string>
+    <string name="tips_and_trick">Tips and Trick</string>
+    <string name="see_all">See All</string>
+    <string name="hello_name">Hello Ikky!</string>
+    <string name="first_desc_home">Continue to \nExplorer you\'re Florest</string>
+    <string name="name_profile">Ikky kun</string>
+    <string name="pro_txt">Pro</string>
+    <string name="job_desc">Android Developer</string>
+    <string name="follow">Follow</string>
+    <string name="message_txt">Message</string>
+    <string name="n_a_txt">N/A</string>
+    <string name="likes_txt">Likes</string>
+    <string name="following_txt">Following</string>
+    <string name="my_post">My Post</string>
+    <string name="content_description">Content Description</string>
     <string name="description">Description</string>
     <string name="username">Username</string>
     <string name="user_profile_picture">User Profile Picture</string>
@@ -27,4 +46,21 @@
     <string name="date_posted">Date Posted</string>
     <string name="tips_content">Tips Content</string>
     <string name="to_detail_tips">To Detail Tips</string>
+    <string name="title">Judul</string>
+
+    <string-array name="judul">
+        <item>Judul 1</item>
+        <item>Judul 2</item>
+        <item>Judul 3</item>
+        <item>Judul 4</item>
+        <item>Judul 5</item>
+    </string-array>
+
+    <string-array name="deskripsi">
+        <item>deskripsi 1</item>
+        <item>deskripsi 2</item>
+        <item>deskripsi 3</item>
+        <item>deskripsi 4</item>
+        <item>deskripsi 5</item>
+    </string-array>
 </resources>
