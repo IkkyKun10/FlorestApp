@@ -16,7 +16,6 @@
     <string name="icon_notification">icon notification</string>
     <string name="third_desc_home">Refer your friends and\n and find new flower</string>
     <string name="image_home">image_home</string>
-    <string name="percent_complete">60% Complete</string>
     <string name="let_s_go">Let\'s Go!</string>
     <string name="tips_and_trick">Tips and Trick</string>
     <string name="see_all">See All</string>
@@ -38,4 +37,10 @@
     <string name="comment">Comment</string>
     <string name="add_a_comment">Add a comment</string>
     <string name="to_detail">To Detail</string>
+    <string name="item_title">Title</string>
+    <string name="rp_1000">1000</string>
+    <string name="contact_seller">Penjual</string>
+    <string name="tips_title">Tips Title</string>
+    <string name="date_posted">Date Posted</string>
+    <string name="tips_content">Tips Content</string>
 </resources>
