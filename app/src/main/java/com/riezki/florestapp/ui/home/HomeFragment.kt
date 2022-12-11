@@ -7,9 +7,13 @@ import android.view.ViewGroup
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.snackbar.BaseTransientBottomBar
 import com.google.android.material.snackbar.Snackbar
+import com.riezki.florestapp.ListTipsData
 import com.riezki.florestapp.R
+import com.riezki.florestapp.adapter.ListTipsAdapter
 import com.riezki.florestapp.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
@@ -46,6 +50,7 @@ class HomeFragment : Fragment() {
         rvListTips.setHasFixedSize(true)
 
         list.addAll(listTips)
+        showRecycleList()
         addPostProduct()
     }
 

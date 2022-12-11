@@ -1,4 +1,4 @@
-package com.riezki.florestapp
+package com.riezki.florestapp.model
 
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupWithNavController
+import com.riezki.florestapp.R
 import com.riezki.florestapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
