@@ -70,6 +70,7 @@ dependencies{
     implementation "com.google.firebase:firebase-auth-ktx:$firebase_auth"
     implementation 'com.google.firebase:firebase-storage-ktx:20.1.0'
     implementation 'com.google.firebase:firebase-database-ktx:20.1.0'
+    implementation 'com.google.android.gms:play-services-auth:20.1.0'
     kapt "androidx.room:room-compiler:$room_version"
     androidTestImplementation "androidx.room:room-testing:$room_version"
     implementation "androidx.room:room-ktx:$room_version"
