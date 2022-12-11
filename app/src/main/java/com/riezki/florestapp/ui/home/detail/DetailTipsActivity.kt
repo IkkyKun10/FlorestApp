@@ -8,15 +8,16 @@ import androidx.core.content.ContextCompat
 import androidx.core.widget.doOnTextChanged
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.riezki.florestapp.R
+import com.riezki.florestapp.adapter.CommentsAdapter
 import com.riezki.florestapp.databinding.ActivityDetailTipsBinding
-import com.riezki.florestapp.model.CommentModel
+import com.riezki.florestapp.core.entity.CommentItem
 
 class DetailTipsActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailTipsBinding
     private lateinit var commentsAdapter: CommentsAdapter
     private var comment: String? = null
     private var dummyProfileImage: Drawable? = null
-    private lateinit var dummyListComments: ArrayList<CommentModel>
+    private lateinit var dummyListComments: ArrayList<CommentItem>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,10 +29,10 @@ class DetailTipsActivity : AppCompatActivity() {
         dummyProfileImage = ContextCompat.getDrawable(this@DetailTipsActivity, R.drawable.ic_baseline_account_circle_24)
 
         dummyListComments = arrayListOf(
-            CommentModel(photoProfile = dummyProfileImage!!, username = "Username", comment = "comment"),
-            CommentModel(photoProfile = dummyProfileImage!!, username = "Username", comment = "comment"),
-            CommentModel(photoProfile = dummyProfileImage!!, username = "Username", comment = "comment"),
-            CommentModel(photoProfile = dummyProfileImage!!, username = "Username", comment = "comment")
+            CommentItem(photoProfile = dummyProfileImage!!, username = "Username", comment = "comment"),
+            CommentItem(photoProfile = dummyProfileImage!!, username = "Username", comment = "comment"),
+            CommentItem(photoProfile = dummyProfileImage!!, username = "Username", comment = "comment"),
+            CommentItem(photoProfile = dummyProfileImage!!, username = "Username", comment = "comment")
         )
 
         commentsAdapter = CommentsAdapter(arrayListOf())
@@ -44,7 +45,7 @@ class DetailTipsActivity : AppCompatActivity() {
         addComment()
     }
 
-    private fun getCommentList(comments: List<CommentModel>) {
+    private fun getCommentList(comments: List<CommentItem>) {
         binding.rvComment.layoutManager = LinearLayoutManager(this)
 
         commentsAdapter.updateCommentlistItems(comments)
@@ -67,11 +68,12 @@ class DetailTipsActivity : AppCompatActivity() {
 
         binding.btnSend.setOnClickListener{
             if(comment!=null){
-                dummyListComments.add(0, CommentModel(
+                dummyListComments.add(0, CommentItem(
                     photoProfile = dummyProfileImage!!,
                     "Username",
                     comment = comment!!
-                ))
+                )
+                )
                 getCommentList(dummyListComments)
                 binding.edtComment.text?.clear()
             }
