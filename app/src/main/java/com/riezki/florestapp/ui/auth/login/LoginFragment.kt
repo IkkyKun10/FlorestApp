@@ -12,7 +12,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.findNavController
 import com.google.firebase.auth.FirebaseAuth
-import com.riezki.florestapp.model.MainActivity
+import com.riezki.florestapp.MainActivity
 import com.riezki.florestapp.R
 import com.riezki.florestapp.databinding.FragmentLoginBinding
 

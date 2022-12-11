@@ -1,4 +1,4 @@
-package com.riezki.florestapp.model
+package com.riezki.florestapp
 
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
