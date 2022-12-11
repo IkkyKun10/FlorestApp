@@ -1,42 +1,65 @@
 package com.riezki.florestapp.ui.home
 
+import android.content.Intent
 import android.os.Bundle
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import android.widget.TextView
-import androidx.fragment.app.Fragment
+import android.widget.Toast
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.gson.Gson
+import com.riezki.florestapp.core.RetrofitService
+import com.riezki.florestapp.core.models.News
+import com.riezki.florestapp.core.repository.NewsRepository
 import com.riezki.florestapp.databinding.FragmentHomeBinding
+import com.riezki.florestapp.ui.base.BaseFragment
+import com.riezki.florestapp.ui.MyViewModelFactory
+import com.riezki.florestapp.ui.detail_news.DetailNewsActivity
+import com.riezki.florestapp.ui.home.adapters.NewsAdapter
 
-class HomeFragment : Fragment() {
+class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
-    private var _binding: FragmentHomeBinding? = null
+    lateinit var viewModel: HomeViewModel
+    private val adapter = NewsAdapter()
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    private val binding get() = _binding!!
+    override fun getViewBinding() = FragmentHomeBinding.inflate(layoutInflater)
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        val homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val retrofitService = RetrofitService.getInstance()
+        val mainRepository = NewsRepository(retrofitService)
 
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+        binding.recyclerview.layoutManager = LinearLayoutManager(requireContext())
+        binding.recyclerview.adapter = adapter
+        adapter.setContext(requireContext())
 
-        val textView: TextView = binding.textHome
-        homeViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
+        viewModel = ViewModelProvider(requireActivity(), MyViewModelFactory(mainRepository))[HomeViewModel::class.java]
+        viewModel.newsList.observe(requireActivity()) {
+            adapter.setNewsList(it.articles.toList())
         }
-        return root
-    }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        _binding = null
+        viewModel.errorMessage.observe(requireActivity()) {
+            Toast.makeText(requireActivity(), it, Toast.LENGTH_SHORT).show()
+        }
+
+        viewModel.loading.observe(requireActivity(), Observer {
+            if (it) {
+                binding.progressDialog.visibility = View.VISIBLE
+            } else {
+                binding.progressDialog.visibility = View.GONE
+            }
+        })
+
+        viewModel.getTopHeadlinesNews()
+        adapter.setOnClickItems(object : NewsAdapter.OnClickItemsListener{
+            override fun onItemClick(news: News) {
+                viewModel.setSelectedItems(news)
+
+                val intent = Intent(requireActivity(), DetailNewsActivity::class.java)
+                intent.putExtra("data", Gson().toJson(news));
+                startActivity(intent)
+            }
+        })
     }
 }
