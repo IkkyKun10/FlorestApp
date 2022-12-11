@@ -1,15 +1,15 @@
-package com.riezki.florestapp.ui.home.detail
+package com.riezki.florestapp.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.riezki.florestapp.databinding.ItemPostCommentBinding
-import com.riezki.florestapp.model.CommentModel
+import com.riezki.florestapp.core.entity.CommentItem
 
-class CommentsAdapter(private val listComments: ArrayList<CommentModel>): RecyclerView.Adapter<CommentsAdapter.ListViewHolder>() {
+class CommentsAdapter(private val listComments: ArrayList<CommentItem>): RecyclerView.Adapter<CommentsAdapter.ListViewHolder>() {
     class ListViewHolder(var binding: ItemPostCommentBinding) : RecyclerView.ViewHolder(binding.root)
 
-    fun updateCommentlistItems(comments: List<CommentModel>){
+    fun updateCommentlistItems(comments: List<CommentItem>){
         listComments.clear()
         listComments.addAll(comments)
         notifyDataSetChanged()
