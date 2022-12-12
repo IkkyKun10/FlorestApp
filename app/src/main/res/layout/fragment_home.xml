@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.home.HomeFragment"
+    android:background="@color/colorPrimaryDark"
     android:paddingStart="@dimen/parent_padding"
     android:paddingEnd="@dimen/parent_padding"
-    android:paddingBottom="@dimen/parent_padding">
+    android:paddingBottom="@dimen/parent_padding"
+    tools:context=".ui.home.HomeFragment">
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
@@ -27,9 +27,9 @@
                 android:orientation="vertical">
 
                 <TextView
+                    style="@style/viewParent.headerText"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    style="@style/viewParent.headerText"
                     android:text="@string/hello_name" />
 
                 <RelativeLayout
@@ -91,10 +91,10 @@
                         android:layout_alignParentTop="true"
                         android:layout_alignParentEnd="true"
                         android:adjustViewBounds="true"
+                        android:contentDescription="@string/image_home"
                         android:cropToPadding="true"
                         android:elevation="@dimen/card_image_elevation"
-                        android:src="@drawable/header_image"
-                        android:contentDescription="@string/image_home"/>
+                        android:src="@drawable/header_image" />
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -127,9 +127,9 @@
                         android:layout_width="80dp"
                         android:layout_height="wrap_content"
                         android:adjustViewBounds="true"
+                        android:contentDescription="@string/icon_notification"
                         android:cropToPadding="true"
-                        android:src="@drawable/ic_home_img"
-                        android:contentDescription="@string/icon_notification"/>
+                        android:src="@drawable/ic_home_img" />
 
                 </RelativeLayout>
 
@@ -149,18 +149,31 @@
                         android:layout_alignParentEnd="true"
                         android:layout_centerVertical="true"
                         android:text="@string/see_all"
-                        android:textColor="@color/purple_500"
+                        android:textColor="@color/teal_200"
                         android:textSize="@dimen/headerMoreTextSize"
                         android:textStyle="bold" />
 
                 </RelativeLayout>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_tips"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    tools:listitem="@layout/row_item" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_product"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    tools:listitem="@layout/row_item" />
 
             </LinearLayout>
 
         </androidx.core.widget.NestedScrollView>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|end">
 
@@ -169,52 +182,52 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                app:layout_anchor="@id/main_fab"
-                app:srcCompat="@drawable/ic_post_tips"
-                app:tint="@color/white"
-                app:fabSize="mini"
-                app:elevation="6dp"
                 android:clickable="true"
+                android:contentDescription="@string/content_description"
                 android:focusable="true"
                 android:visibility="gone"
+                app:elevation="6dp"
+                app:fabSize="mini"
+                app:layout_anchor="@id/main_fab"
                 app:layout_constraintBottom_toTopOf="@id/second_fab"
                 app:layout_constraintEnd_toEndOf="@+id/second_fab"
                 app:layout_constraintStart_toStartOf="@+id/second_fab"
-                android:contentDescription="@string/content_description"/>
+                app:srcCompat="@drawable/ic_post_tips"
+                app:tint="@color/white" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/second_fab"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
                 android:layout_marginBottom="8dp"
-                app:layout_anchor="@id/main_fab"
-                app:srcCompat="@drawable/ic_post_product"
-                app:tint="@color/white"
-                app:fabSize="mini"
-                app:elevation="6dp"
                 android:clickable="true"
+                android:contentDescription="@string/content_description"
                 android:focusable="true"
+                android:visibility="gone"
+                app:elevation="6dp"
+                app:fabSize="mini"
+                app:layout_anchor="@id/main_fab"
                 app:layout_constraintBottom_toTopOf="@id/main_fab"
                 app:layout_constraintEnd_toEndOf="@+id/main_fab"
                 app:layout_constraintStart_toStartOf="@+id/main_fab"
-                android:contentDescription="@string/content_description"/>
+                app:srcCompat="@drawable/ic_post_product"
+                app:tint="@color/white" />
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/main_fab"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginBottom="8dp"
                 android:backgroundTint="@color/purple_light"
                 android:clickable="true"
-                app:srcCompat="@drawable/ic_add"
-                app:elevation="6dp"
                 android:contentDescription="@string/content_description"
-                app:tint="@color/white"
+                android:focusable="true"
                 app:borderWidth="0dp"
-                android:layout_marginBottom="8dp"
-                android:focusable="true" />
+                app:elevation="6dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:srcCompat="@drawable/ic_add"
+                app:tint="@color/white" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -65,4 +65,8 @@ class DetailActivity : AppCompatActivity() {
             imgSwitcher.setImageResource(sampleImages[index])
         }
     }
+
+    companion object {
+        const val EXTRA_DATA = "extra_data"
+    }
 }

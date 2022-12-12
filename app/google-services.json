@@ -1,33 +1,41 @@
 {
   "project_info": {
-    "project_number": "198193102686",
-    "project_id": "florestapp-2250a",
-    "storage_bucket": "florestapp-2250a.appspot.com"
+    "project_number": "438693532561",
+    "project_id": "florestapps-89f60",
+    "storage_bucket": "florestapps-89f60.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:198193102686:android:2cad0008a34837f273d9cf",
+        "mobilesdk_app_id": "1:438693532561:android:f40715ac8b9c4526290030",
         "android_client_info": {
           "package_name": "com.riezki.florestapp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "198193102686-0baed93ivshqfc59f8mgiq2ihgktrpa9.apps.googleusercontent.com",
+          "client_id": "438693532561-kg4eeom0outo2hvqf4jiaui0b5qs5j32.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.riezki.florestapp",
+            "certificate_hash": "354fc270891b404cf7e92e1b2bae9c70334b251a"
+          }
+        },
+        {
+          "client_id": "438693532561-bombm61kou0vqcvuolk8ds4vm8no2juv.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCxoQPj2jQJfD68T1FHXTs6l3Syo_85f6k"
+          "current_key": "AIzaSyA4zCSpw-sv2XC8AdAMgCoFDPmS83nOXLM"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "198193102686-0baed93ivshqfc59f8mgiq2ihgktrpa9.apps.googleusercontent.com",
+              "client_id": "438693532561-bombm61kou0vqcvuolk8ds4vm8no2juv.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

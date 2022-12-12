@@ -13,6 +13,8 @@ import com.riezki.florestapp.databinding.ActivityDetailTipsBinding
 import com.riezki.florestapp.core.entity.CommentItem
 
 class DetailTipsActivity : AppCompatActivity() {
+
+
     private lateinit var binding: ActivityDetailTipsBinding
     private lateinit var commentsAdapter: CommentsAdapter
     private var comment: String? = null
@@ -78,5 +80,9 @@ class DetailTipsActivity : AppCompatActivity() {
                 binding.edtComment.text?.clear()
             }
         }
+    }
+
+    companion object {
+        const val INTENT_EXTRA = "intent_extra"
     }
 }

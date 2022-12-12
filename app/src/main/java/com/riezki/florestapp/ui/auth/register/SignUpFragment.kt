@@ -11,6 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.riezki.florestapp.R
 import com.riezki.florestapp.databinding.FragmentSignUpBinding
@@ -64,10 +65,8 @@ class SignUpFragment : Fragment() {
                 if (it.isSuccessful){
                     showLoading(false)
                     Toast.makeText(context, "Register Berhasil", Toast.LENGTH_SHORT).show()
-                    Intent(context, LoginFragment::class.java).also { its ->
-                        startActivity(its)
-                        activity?.finish()
-                    }
+                    view?.findNavController()?.navigate(R.id.signUpFragment_to_loginFragment)
+                    activity?.finish()
                 } else {
                     showLoading(false)
                     Toast.makeText(context, "${it.exception?.message}", Toast.LENGTH_SHORT).show()
